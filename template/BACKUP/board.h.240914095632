@@ -1,0 +1,117 @@
+
+#ifndef __BOARD_H
+#define __BOARD_H 1
+
+#include <iom2560v.h>
+#include <macros.h>
+// module switch  0 disable  1 enable
+#define USINGLCD   1
+#define USINGOLED  0
+#define USINGDHT11  0
+#define USINGESP32  0
+
+#define ESP32_DEBUG  0
+
+
+
+#define NOT_A_PIN 0
+#define NOT_A_PORT 0
+#define HIGH 0x1
+#define LOW 0x0
+
+#define PWM_REG_R   0
+#define PWM_REG_G	1
+#define PWM_REG_B	2
+#define PWM_DCM_FOR	3
+#define PWM_DCM_BAK	4
+
+typedef signed long      S32;
+typedef signed short     S16;
+typedef signed char      S8;
+
+typedef volatile signed long      VS32;
+typedef volatile signed short     VS16;
+typedef volatile signed char      VS8;
+
+typedef unsigned long       U32;
+typedef unsigned short      U16;
+typedef unsigned char       U8;
+
+typedef volatile unsigned long      VU32;
+typedef volatile unsigned short     VU16;
+typedef volatile unsigned char      VU8;
+
+typedef unsigned long       u32;
+typedef unsigned short      u16;
+typedef unsigned char       u8;
+
+#define PA 1
+#define PB 2
+#define PC 3
+#define PD 4
+#define PE 5
+#define PF 6
+#define PG 7
+#define PH 8
+#define PJ 10
+#define PK 11
+#define PL 12
+
+/* enable global interrupts */
+#define GIE (SREG |= BIT(7))
+
+/* disable global interrupts */
+#define GID (SREG &= ~BIT(7))
+
+/* enables an unsigned char to be used as a series of booleans */
+#define BIT(x) (1 << (x))
+#define SETBIT(x, y) (x |= y)
+#define CLEARBIT(x, y) (x &= ~y)
+#define CHECKBIT(x, y) (x & y)
+
+// ***** Define I/O pins *****
+
+#define BIT7 0x80
+#define BIT6 0x40
+#define BIT5 0x20
+#define BIT4 0x10
+#define BIT3 0x08
+#define BIT2 0x04
+#define BIT1 0x02
+#define BIT0 0x01
+
+#define true 1
+#define True 1
+
+#define false 0
+#define False 0
+
+typedef signed char int8_t;
+typedef unsigned char uint8_t;
+typedef signed int int16_t;
+typedef unsigned int uint16_t;
+
+
+#ifndef cbi
+#define cbi(sfr, bit) ((sfr) &= ~BIT(bit))
+#endif
+#ifndef sbi
+#define sbi(sfr, bit) ((sfr) |= BIT(bit))
+#endif
+#define bit_is_set(sfr, bit) ((sfr)&BIT(bit))
+#define bit_is_clear(sfr, bit) (!((sfr)&BIT(bit)))
+
+#define ledPort PB
+#define ledPin (7)
+
+void gpioWrite(uint8_t port, uint8_t pin, uint8_t val);
+void gpioToggle(uint8_t port, uint8_t pin);
+uint8_t gpioRead(uint8_t port, uint8_t pin);
+int analogRead(uint8_t channel);
+void boardInit(void);
+uint8_t spitransferByte(uint8_t data);
+void spiTransferBuf(void *buf, uint8_t count) ;
+void buzzWorkOnce(void);
+void board_process(void);
+void pwmWrite(uint8_t pwmChanel, uint8_t val);
+#endif

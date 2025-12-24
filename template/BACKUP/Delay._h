@@ -1,0 +1,16 @@
+#ifndef __DELAY_H
+#define __DELAY_H	
+#include <iom2560v.h>
+#include <macros.h>
+
+#define	u8 unsigned char
+#define	u16 unsigned int
+#define	u32 unsigned long
+
+
+//void delay_1us(void);
+void delay_us(unsigned int n);
+void delay_ms(unsigned int n);
+void delay_s(unsigned int n) ; 
+#endif  
+	 

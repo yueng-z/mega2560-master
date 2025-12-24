@@ -1,0 +1,45 @@
+#ifndef __DINO_H
+#define __DINO_H
+
+extern const unsigned char  GROUND[];
+extern const unsigned char  CLOUD[];
+extern const unsigned char  DINO[2][32];
+extern const unsigned char  DINO_JUMP[8][48];
+extern const unsigned char  CACTUS_1[];
+extern const unsigned char  CACTUS_2[];
+extern const unsigned char  CACTUS_3[];
+extern const unsigned char  CACTUS_4[];
+extern const unsigned char  RESTART[];
+extern const unsigned char  COVER[];
+
+
+// 快速绘制图像
+void OLED_DrawBMPFast(const unsigned char BMP[]);
+
+// 显示地面
+void OLED_DrawGround();
+
+// 绘制云朵
+void OLED_DrawCloud();
+
+// 绘制小恐龙
+void OLED_DrawDino();
+
+// 绘制仙人掌障碍物
+void OLED_DrawCactus();
+
+// 绘制跳跃小恐龙
+int OLED_DrawDinoJump(char reset);
+
+// 绘制随机出现的仙人掌障碍物
+int OLED_DrawCactusRandom(unsigned char ver, unsigned char reset);
+
+// 绘制重启
+void OLED_DrawRestart();
+// 绘制封面
+void OLED_DrawCover();
+#endif
+
+
+
+

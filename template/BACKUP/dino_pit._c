@@ -1,0 +1,49 @@
+#include "dino.h"
+#include "stdlib.h"
+#include "board.h"
+#include "oled.h"
+#include "key.h"
+
+const unsigned char  cliff = 0xff;
+const unsigned int   pit[][2] = 
+{
+    90,20
+};
+
+void load_pit()
+{
+    int i;
+    static num = 0;
+    for (i = 0; i < 1; i++)
+    {
+        /* code */
+    }
+    
+
+}
+
+int drawpit(){
+    int x,i;
+    char width;
+    
+    //if(x + width -1 >= pos_on_map - 63 && x < pos_on_map + 64);
+    if (dino_x > x - 1 && dino_x + 15 < x + width -1  + 1)
+    {
+        //foothold = 0;
+    }
+    if(x + width -1  + 1 >= pos_on_map - 63 && x - 1 < pos_on_map + 64)
+    {
+        OLED_SetPos((x - 1)%128,7);
+        for (i = x - 1; i < x + width + 1; i++)
+        {
+           if (i = x - 1 || i = x + width)
+           {
+                oledWriteByte(cliff,OLED_DATA);
+           }
+           else
+           {
+                oledWriteByte(0x0,OLED_DATA);
+           }                      
+        }   
+    }
+}

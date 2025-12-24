@@ -1,0 +1,26 @@
+<CLASS0>
+	<NAME>MCS51</NAME>
+    <TYPE0>
+		<NAME>ATMEL</NAME>
+        <PART0>
+            <NAME>ATmega2560</NAME>
+            <prgClass>3</prgClass>
+            <ChipClass>0</ChipClass>
+            <SubClass>0</SubClass>
+            <ZIFNO>0</ZIFNO>
+            <flashsize>262144</flashsize>
+            <pagesize>256</pagesize>
+            <XmlName>ATmega2560.xml</XmlName>
+        </PART0>     
+		        <PART1>
+            <NAME>ATmega2560-ZSC</NAME>
+            <prgClass>3</prgClass>
+            <ChipClass>0</ChipClass>
+            <SubClass>0</SubClass>
+            <ZIFNO>0</ZIFNO>
+            <flashsize>262144</flashsize>
+            <pagesize>256</pagesize>
+            <XmlName>ATmega2560-ZSC.xml</XmlName>
+        </PART1>     
+    </TYPE0>
+</CLASS0>
